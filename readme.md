@@ -2,6 +2,9 @@
 
 Application is live on: https://support-desk-ihorizon.herokuapp.com
 
+Superuser: raghav
+Password: qwerty1234
+
 To install:
 
 1. 
