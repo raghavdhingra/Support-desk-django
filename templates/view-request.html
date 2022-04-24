@@ -40,6 +40,10 @@
                 </button>
             </a>
         </div>
+        {% else %}
+        <div>
+            <div class="badge border text-success border-success rounded">{{request.status}}</div>
+        </div>
         {% endif %}
     </div>
 </div>
