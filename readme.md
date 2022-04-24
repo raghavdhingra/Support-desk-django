@@ -1,5 +1,7 @@
 # Support desk
 
+Application is live on: https://support-desk-ihorizon.herokuapp.com
+
 To install:
 
 1. 
