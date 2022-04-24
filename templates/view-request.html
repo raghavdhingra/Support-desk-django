@@ -1,0 +1,47 @@
+{% extends 'agent/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <a href="{% url 'redirect_user' %}">
+        <button type="button" class="btn btn-link p-0 back-button"><img src="{% static 'assets/img/icons/interface/arrow-navigation.svg' %}" alt="Back" /> Go Back</button>
+    </a>
+
+    <div class="row mt-4">
+        <div class="col-md-9">
+            <h4 class="view-request-description-section">{{request.title}}
+                <div class="badge badge-danger rounded ml-2">High Priority</div>
+            </h4>
+            <div class="mt-2 request-card-footer-wrapper">
+                <div>Created {{request.created_on|timesince}}</div>
+                {% if request.assigned_to %}
+                <div>Assigned to {{request.assigned_to}}</div>
+                {% else %}
+
+                {% if is_staff %}
+                <a href="/supportdesk/assign/{{request.id}}">
+                    <button class="btn btn-link border-primary border-2 text-primary">
+                        <img src="{% static 'assets/img/icons/interface/star.svg' %}" alt="ADD" /> Assign to me
+                    </button>
+                </a>
+                {% endif %}
+                
+                {% endif %}
+            </div>
+
+            <p class="mt-5">{{request.description}}</p>
+        </div>
+        {% if is_staff and request.status == "progress" %}
+        <div class="col-md-3">
+            <a href="/supportdesk/complete/{{request.id}}">
+                <button class="btn btn-link border-success border-2 text-success">
+                    <img src="{% static 'assets/img/icons/interface/check.svg' %}" alt="Tick" /> Mark as complete
+                </button>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

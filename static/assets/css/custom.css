@@ -1,0 +1,79 @@
+/* 
+/* 
+/*  custom.css
+/*
+/*  If not using Gulp and Sass, add your custom CSS below then include it
+/*  in your page by adding a reference to assets/css/custom.css in the head of each page.
+/*
+*/
+
+:root {
+  --primary-color: #2c88d9;
+  --sub-primary-color: #b3d4f1;
+}
+
+.ihorizon-img {
+  max-width: 200px;
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.border-primary {
+  border: 2px solid var(--sub-primary-color) !important;
+}
+
+.badge {
+  bottom: 0;
+}
+
+
+
+/* Request card CSS */
+
+.request-card {
+  border: 2px solid  #cbd5de;
+  padding: 1rem;
+}
+
+.request-card-header-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.request-card-footer-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+/* Request Card CSS */
+
+
+.create-request-card {
+  border: 2px solid #cbd5de;
+  padding: 2rem;
+  background-color: #f7f9fa;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+  text-decoration: underline;
+}

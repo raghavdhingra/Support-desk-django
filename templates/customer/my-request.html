@@ -1,0 +1,44 @@
+{% extends 'customer/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-6 mb-3">
+        <h3>My requests</h3>
+    </div>
+
+    <!-- Card -->
+    {% if requests %}
+    {% for request in requests %}
+    <div class="request-card mt-2">
+        <div class="request-card-header-wrapper">
+            <a href="/supportdesk/view-request/{{request.id}}"><h4 class="m-0">{{request.title}}</h4></a>
+            {% if request.is_priority %}
+            <div class="badge badge-danger rounded ml-2">High Priority</div>
+            {% endif %}
+            <div class="badge border {% if request.status == 'progress' %}text-primary border-primary{% else %}text-success border-success{% endif %} ml-auto rounded">{{request.status}}</div>
+        </div>
+
+        <div class="text-body mt-2">
+            {{request.description|slice:200}}{% if request.description|length > 200 %}...{% endif %}
+        </div>
+
+        <div class="mt-2 request-card-footer-wrapper">
+            <div>Created {{request.created_on|timesince}} ago</div>
+            {% if request.assigned_to %}
+            <div>Assigned to {{request.assigned_to}}</div>
+            {% else %}
+            <div class="text-danger">No one is assigned</div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <h3 class="text-center">No request Found</h3>
+    {% endif %}
+    <!-- Card -->
+
+</div>
+
+{% endblock %}

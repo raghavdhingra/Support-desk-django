@@ -1,0 +1,29 @@
+{% extends 'customer/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="create-request-card mt-5">
+        <h4>Request Information</h4>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mt-3">
+                <label class="m-0 font-weight-bold">Summary</label>
+                <input type="text" name="title" placeholder="Unable to login the application" class="input-group-text text-left w-100" />
+            </div>
+            <div class="mt-3">
+                <label class="m-0 font-weight-bold">Description</label>
+                <textarea class="input-group-text text-left w-100" name="description"></textarea>
+            </div>
+            <div class="mt-3">
+                <input type="checkbox" name="priority" id="high-prority" />
+                <label class="font-weight-bold" for="high-prority">Flag as high priority</label>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary w-100 bg-primary mt-4">Create Support Request</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
